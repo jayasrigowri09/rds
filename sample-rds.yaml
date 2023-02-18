@@ -51,7 +51,7 @@ Parameters:
   MultiAZ:
     Description: Multi-AZ master database
     Type: String
-    Default: 'false'
+    Default: false
 Resources:
   MyDB:
     Type: AWS::RDS::DBInstance
@@ -65,7 +65,8 @@ Resources:
       MasterUsername: !Ref DBUser
       MasterUserPassword: !Ref DBPassword
       MultiAZ: !Ref MultiAZ
-      #DeletionPolicy: Snapshot   
+    #DeletionPolicy: Snapshot  
+     
    
 
 
