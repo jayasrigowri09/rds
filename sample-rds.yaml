@@ -56,23 +56,16 @@ Resources:
   MyDB:
     Type: AWS::RDS::DBInstance
     Properties:
-      DBName:
-        Ref: DBName
-      AllocatedStorage:
-        Ref: DBAllocatedStorage
-      DBInstanceClass:
-        Ref: DBInstanceClass
+      DBName: !Ref DBName
+      AllocatedStorage: !Ref DBAllocatedStorage
+      DBInstanceClass: !Ref DBInstanceClass
       Engine: MySQL
       EngineVersion: '5.5'
-      DBSecurityGroups:
-      - Ref: DBSecurityGroup
-      MasterUsername:
-        Ref: DBUser
-      MasterUserPassword:
-        Ref: DBPassword
-      MultiAZ:
-        Ref: MultiAZ
-    DeletionPolicy: Snapshot   
+      DBSecurityGroups: !Ref DBSecurityGroup
+      MasterUsername: !Ref DBUser
+      MasterUserPassword: !Ref DBPassword
+      MultiAZ: !Ref MultiAZ
+      #DeletionPolicy: Snapshot   
    
 
 
