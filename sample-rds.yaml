@@ -4,6 +4,14 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: cretae RDS in SQL 
 
 Parameters:
+  VPC:
+    Type: String
+    Description: The VPC to create the cluster
+    Default: vpc-ID
+  PrivateSubnet01:
+    Type: String
+    Description: The subnet for the DB cluster
+    Default: subnet-ID
   DBName:
     Default: MyDatabase
     Description: The database name
@@ -46,7 +54,7 @@ Parameters:
     AllowedPattern: '[a-zA-Z0-9\-]+'
     ConstraintDescription: must be a valid security group name.
   #AlarmTopic:
-   # Description: "SNS topic to notify if thee are operationla issues"
+    # Description: "SNS topic to notify if thee are operationla issues"
     #Type: "String"
   MultiAZ:
     Description: Multi-AZ master database
