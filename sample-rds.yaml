@@ -4,14 +4,6 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: cretae RDS in SQL 
 
 Parameters:
-  VPC:
-    Type: String
-    Description: The VPC to create the cluster
-    Default: vpc-ID
-  PrivateSubnet01:
-    Type: String
-    Description: The subnet for the DB cluster
-    Default: subnet-ID
   DBName:
     Default: MyDatabase
     Description: The database name
@@ -60,6 +52,13 @@ Parameters:
     Description: Multi-AZ master database
     Type: String
     Default: 'false'
+  SnapshotOnDelete:
+    Description: Do you want to create a Snapshot on instance delete?
+    Type: String
+    Default: 'false'
+    AllowedValues:
+    - 'true'
+    - 'false'
 Resources:
   MyDB:
     Type: AWS::RDS::DBInstance
@@ -73,7 +72,7 @@ Resources:
       MasterUsername: !Ref DBUser
       MasterUserPassword: !Ref DBPassword
       MultiAZ: !Ref MultiAZ
-    #DeletionPolicy: Snapshot  
+    #DeletionPolicy: !Ref SnapshotOnDelete 
 
    
 
