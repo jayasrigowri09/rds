@@ -30,6 +30,11 @@ Parameters:
     Description: choose publicsubnetcidr
     Default: 10.0.0.0/24
 
+  PrivateSubnet1CIDR:
+    Type: String
+    Description: choose privatesubnetcidr
+    Default: 10.0.0.0/16
+
 Resources:
   MyInstance:
     Type: AWS::EC2::Instance
