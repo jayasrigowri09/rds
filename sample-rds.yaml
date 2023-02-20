@@ -70,7 +70,7 @@ Resources:
         FromPort: 3306
         ToPort: 3306
         SourceSecurityGroupName: !Ref EC2SecurityGroup
- # DBSecurityGroup:
+  # DBSecurityGroup:
   #  Type: AWS::RDS::DBSecurityGroup
    # #Condition: Is-EC2-Classic
     ##DBSecurityGroupIngress:
