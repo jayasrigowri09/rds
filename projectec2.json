@@ -12,7 +12,7 @@
       "AmiId": {
         "Type": "String",
         "Description": "The ID of the Instance",
-        "Default": "ami-00569e54da628d17c" 
+        "Default": "ami-034f10b7ffb207ab9" 
       },
       "KeyName": {
         "Type": "AWS::EC2::KeyPair::KeyName"
