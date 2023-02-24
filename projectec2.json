@@ -118,19 +118,7 @@
             }
           ]
         }
-      },
-      "WebAppEIP": {
-        "Type": "AWS::EC2::EIP",
-        "Properties": {
-          "Domain": "vpc",
-          "InstanceId": "WebAppInstance",
-          "Tags": [
-            {
-              "Key": "Name",
-              "Value": "EC2-EIP"
-            }
-          ]
-        }
       }
+      
     }
   }
