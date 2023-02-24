@@ -1,115 +1,86 @@
 {
-    "AWSTemplateFormatVersion" : "2010-09-09",
-  
-    "Description" : "AWS CloudFormation Sample Template VPC_RDS_DB_Instance: Sample template showing how to create an RDS DBInstance in an existing Virtual Private Cloud (VPC). **WARNING** This template creates an Amazon Relational Database Service database instance. You will be billed for the AWS resources used if you create a stack from this template.",
-  
-    "Parameters" : {
-  
-      "VpcId" : {
-        "Type" : "String",
-        "Description" : "VpcId of your existing Virtual Private Cloud (VPC)"
-      },
-  
-      "Subnets" : {
-        "Type" : "CommaDelimitedList",
-        "Description" : "The list of SubnetIds, for at least two Availability Zones in the region in your Virtual Private Cloud (VPC)"
-      },
-  
-      "DBName": {
-        "Default": "MyDatabase",
-        "Description" : "The database name",
-        "Type": "String",
-        "MinLength": "1",
-        "MaxLength": "64",
-        "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
-        "ConstraintDescription" : "must begin with a letter and contain only alphanumeric characters."
-      },
-  
-      "DBUsername": {
-        "Default": "admin",
-        "NoEcho": "true",
-        "Description" : "The database admin account username",
-        "Type": "String",
-        "MinLength": "1",
-        "MaxLength": "16",
-        "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
-        "ConstraintDescription" : "must begin with a letter and contain only alphanumeric characters."
-      },
-  
-      "DBPassword": {
-        "Default": "password",
-        "NoEcho": "true",
-        "Description" : "The database admin account password",
-        "Type": "String",
-        "MinLength": "8",
-        "MaxLength": "41",
-        "AllowedPattern" : "[a-zA-Z0-9]*",
-        "ConstraintDescription" : "must contain only alphanumeric characters."
-      },
-  
-      "DBClass" : {
-        "Default" : "db.m1.small",
-        "Description" : "Database instance class",
-        "Type" : "String",
-        "AllowedValues" : [ "db.m1.small", "db.m1.large", "db.m1.xlarge", "db.m2.xlarge", "db.m2.2xlarge", "db.m2.4xlarge" ],
-        "ConstraintDescription" : "must select a valid database instance type."
-      },
-  
-      "DBAllocatedStorage" : {
-        "Default": "5",
-        "Description" : "The size of the database (Gb)",
-        "Type": "Number",
-        "MinValue": "5",
-        "MaxValue": "1024",
-        "ConstraintDescription" : "must be between 5 and 1024Gb."
-      }
-    },
-  
-    "Resources" : {
-  
-      "MyDBSubnetGroup" : {
-        "Type" : "AWS::RDS::DBSubnetGroup",
-        "Properties" : {
-          "DBSubnetGroupDescription" : "Subnets available for the RDS DB Instance",
-          "SubnetIds" : { "Ref" : "Subnets" }
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "AWS CloudFormation Sample Template for creating an Amazon RDS DB instance: Sample template showing how to create a DB instance with Enhanced Monitoring enabled. **WARNING** This template creates an RDS DB instance. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Parameters": {
+        "DBInstanceID": {
+            "Default": "mydbinstance",
+            "Description": "My database instance",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "63",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "Must begin with a letter and must not end with a hyphen or contain two consecutive hyphens."
+        },
+        "DBName": {
+            "Default": "mydb",
+            "Description": "My database",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "64",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "Must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBInstanceClass": {
+            "Default": "db.m5.large",
+            "Description": "DB instance class",
+            "Type": "String",
+            "ConstraintDescription": "Must select a valid DB instance type."
+        },
+        "DBAllocatedStorage": {
+            "Default": "50",
+            "Description": "The size of the database (GiB)",
+            "Type": "Number",
+            "MinValue": "20",
+            "MaxValue": "65536",
+            "ConstraintDescription": "must be between 20 and 65536 GiB."
+        },
+        "DBUsername": {
+            "NoEcho": "true",
+            "Description": "Username for MySQL database access",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "16",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBPassword": {
+            "NoEcho": "true",
+            "Description": "Password MySQL database access",
+            "Type": "String",
+            "MinLength": "8",
+            "MaxLength": "41",
+            "AllowedPattern": "[a-zA-Z0-9]*",
+            "ConstraintDescription": "must contain only alphanumeric characters."
         }
-      },
-  
-  
-      "myVPCSecurityGroup" : {
-          "Type" : "AWS::EC2::SecurityGroup",
-          "Properties" :
-          {
-             "GroupDescription" : "Security group for RDS DB Instance.",
-             "VpcId" : { "Ref" : "VpcId" }
-          }
-      },
-  
-      "MyDB" : {
-        "Type" : "AWS::RDS::DBInstance",
-        "Properties" : {
-          "DBName" : { "Ref" : "DBName" },
-          "AllocatedStorage" : { "Ref" : "DBAllocatedStorage" },
-          "DBInstanceClass" : { "Ref" : "DBClass" },
-          "Engine" : "MySQL",
-          "EngineVersion" : "5.5",
-          "MasterUsername" : { "Ref" : "DBUsername" } ,
-          "MasterUserPassword" : { "Ref" : "DBPassword" },
-          "DBSubnetGroupName" : { "Ref" : "MyDBSubnetGroup" },
-          "VPCSecurityGroups" : [ { "Ref" : "myVPCSecurityGroup" }  ]
-        }
-      }
     },
-  
-    "Outputs" : {
-      "JDBCConnectionString": {
-        "Description" : "JDBC connection string for database",
-        "Value" : { "Fn::Join": [ "", [ "jdbc:mysql://",
-                                        { "Fn::GetAtt": [ "MyDB", "Endpoint.Address" ] },
-                                        ":",
-                                        { "Fn::GetAtt": [ "MyDB", "Endpoint.Port" ] },
-                                        "/",
-                                        { "Ref": "DBName" }]]}
-      }
+    "Resources": {
+        "MyDB": {
+            "Type": "AWS::RDS::DBInstance",
+            "Properties": {
+                "DBInstanceIdentifier": {
+                    "Ref": "DBInstanceID"
+                },
+                "DBName": {
+                    "Ref": "DBName"
+                },
+                "DBInstanceClass": {
+                    "Ref": "DBInstanceClass"
+                },
+                "AllocatedStorage": {
+                    "Ref": "DBAllocatedStorage"
+                },
+                "Engine": "MySQL",
+                "EngineVersion": "8.0.16",
+                "MasterUsername": {
+                    "Ref": "DBUsername"
+                },
+                "MasterUserPassword": {
+                    "Ref": "DBPassword"
+                },
+                "MonitoringInterval": 60,
+                "MonitoringRoleArn": "arn:aws:iam::1233456789012:role/rds-monitoring-role" 
+                
+            }
+        }
     }
-  }
+}
