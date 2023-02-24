@@ -7,12 +7,12 @@
       "AvailabilityZone": {
         "Type": "String",
         "Description": "select availability zone",
-        "Default": "ap-south-1a"
+        "Default": "us-west-1a"
       },
       "AmiId": {
         "Type": "String",
         "Description": "The ID of the Instance",
-        "Default": "ami-0e742cca61fb65051"
+        "Default": "ami-00569e54da628d17c" 
       },
       "KeyName": {
         "Type": "AWS::EC2::KeyPair::KeyName"
