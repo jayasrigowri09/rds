@@ -9,7 +9,7 @@
         "Description": "select availability zone",
         "Default": "us-west-1a"
       },
-      "AmiId": {
+      "ImageId": {
         "Type": "String",
         "Description": "The ID of the Instance",
         "Default": "ami-034f10b7ffb207ab9" 
@@ -42,7 +42,7 @@
         "Type": "AWS::EC2::Instance",
         "Properties": {
           "AvailabilityZone": "AvailabilityZone",
-          "ImageId": "AmiId",
+          "ImageId": "ImageId",
           "InstanceType": "t2.micro",
           "KeyName": "KeyName",
           "SecurityGroupIds": [
