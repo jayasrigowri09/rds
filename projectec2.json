@@ -130,15 +130,7 @@
              ]
           }
        }
-    },
-    "Outputs": {
-       "WebsiteURL": {
-          "Value": null,
-          "Description": "WebApp URL"
-       },
-       "WebAppDatabaseEndpoint": {
-          "Description": "Connection endpoint for the database",
-          "Value": null
-       }
+    }    
+    
     }
- }
+ 
