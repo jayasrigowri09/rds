@@ -9,11 +9,7 @@
         "Description": "select availability zone",
         "Default": "us-west-2a"
       },
-      "AmiId": {
-        "Type": "String",
-        "Description": "The ID of the Instance",
-        "Default": "ami-0f1a5f5ada0e7da53"
-      },
+      
       "KeyPairName": {
         "Type": "AWS::EC2::KeyPair::KeyName"
       },
@@ -128,17 +124,14 @@
           ]
         }
       },
-      "InternetGateway": {
-        "Type": "AWS::EC2::InternetGateway",
-        "Properties": {
-          "Tags": [
-            {
-              "Key": "Name",
-              "Value": "Test-Igw"
-            }
-          ]
+      "Resources" : {
+        "InternetGateway" : {
+           "Type" : "AWS::EC2::InternetGateway",
+           "Properties" : {
+             "Tags" : [ {"Key" : "Name", "Value" : "Test-Igw"}]
+           }
         }
-      },
+     },
       "InternetGatewayAttachment": {
         "Type": "AWS::EC2::VPCGatewayAttachment",
         "Properties": {
@@ -236,7 +229,7 @@
         "Type": "AWS::EC2::Instance",
         "Properties": {
           "AvailabilityZone": "AvailabilityZone",
-          "ImageId": "AmiId",
+          "ImageId": "ami-0f1a5f5ada0e7da53",
           "InstanceType": "t2.micro",
           "KeyName": "KeyPairName",
           "SecurityGroupIds": [
