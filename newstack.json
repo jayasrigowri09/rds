@@ -50,9 +50,7 @@
                 }
               ]
             }
-          }
-
-    },
+          },
         "PrivateSubnet1": {
             "Type": "AWS::EC2::Subnet",
             "Properties": {
@@ -289,4 +287,5 @@
         }
 
 
+    }
 }
