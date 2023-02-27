@@ -9,12 +9,12 @@
             "Default": "us-east-1d"
         },
        
-        "ImageId":{
+        "ImageId": {
             "Type": "String",
             "Description": "Select imageid",
             "Default": "ami-0dfcb1ef8550277af"
         },
-        "KeyPairName":{
+        "KeyName": {
             "Type": "AWS::EC2::KeypairName::KeyName"
         },
         "DBInstanceIdentifier": {
@@ -266,7 +266,7 @@
               "AvailabilityZone": "AvailabilityZone",
               "ImageId": "AmiId",
               "InstanceType": "t2.micro",
-              "KeyName": "KeyPairName",
+              "KeyName": "KeyName",
               "SecurityGroupIds": [
                 "WebAppSecurityGroup"
               ],
