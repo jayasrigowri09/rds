@@ -15,8 +15,8 @@
             "Default": "ami-0dfcb1ef8550277af"
         },
         "KeyName": {
-            "Type": "AWS::EC2::KeypairName::KeyName"
-        },
+            "Type": "AWS::EC2::KeyPair::KeyName"
+          },
         "DBInstanceIdentifier": {
             "Type": "String",
             "Default": "webapp-db"
