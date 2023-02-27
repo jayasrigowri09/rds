@@ -80,6 +80,27 @@
         ]
       }
     },
+    "RdsSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+          "GroupDescription": "Allow Rds connection",
+          "SecurityGroupIngress": [
+              {
+                  "IpProtocol": "tcp",
+                  "FromPort": 3306,
+                  "ToPort": 3306,
+                  "CidrIp": "0.0.0.0/0"
+              }
+          ],
+          "VpcId": {
+              "Ref": "RDSDEMOVPC"
+          },
+          "Tags": [
+              {
+                  "Key": "Name",
+                  "Value": "Rds-Sg"
+              }
+          ],
     "RdsDBSubnetGroup": {
       "Type": "AWS::RDS::DBSubnetGroup",
       "Properties": {
@@ -247,27 +268,6 @@
           {
             "Key": "Name",
             "Value": "Demo-ec2"
-          }
-        ]
-      }
-    },
-    "RdsSecurityGroup": {
-      "Type": "AWS::EC2::SecurityGroup",
-      "Properties": {
-        "GroupDescription": "Allow Rds connection",
-        "SecurityGroupIngress": [
-          {
-            "IpProtocol": "tcp",
-            "FromPort": 3306,
-            "ToPort": 3306,
-            "CidrIp": "0.0.0.0/0"
-          }
-        ],
-        "VpcId": "RDSDEMOVPC",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "Rds-sg"
           }
         ]
       }
