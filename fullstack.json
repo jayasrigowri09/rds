@@ -292,7 +292,9 @@
               "CidrIp": "0.0.0.0/0"
             }
           ],
-          "VpcId": "RDSDEMOVPC",
+          "VpcId": {
+            "Ref": "RDSDEMOVPC"
+          },
           "Tags": [
             {
               "Key": "Name",
