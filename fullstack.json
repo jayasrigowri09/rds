@@ -128,7 +128,7 @@
       "InternetGateway" : {
            "Type" : "AWS::EC2::InternetGateway",
            "Properties" : {
-             "Tags" : [ {"Key" : "Name", "Value" : "Test-Igw"}]
+             "Tags" : [ {"Key" : "Name", "Value" : "igw"}]
            }
         },
      
