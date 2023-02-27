@@ -2,10 +2,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: AWS CloudFormation Sample Template for creating an Amazon RDS.
 Parameters:
-  AvailabilityZone:
-    Type: String
-    Description: select availability zone
-    Default: us-west-2a
+  
   KeyPairName:
     Type: AWS::EC2::KeyPair::KeyName
   DBInstanceIdentifier:
@@ -151,7 +148,7 @@ Resources:
   WebAppInstance:
     Type: AWS::EC2::Instance
     Properties:
-      AvailabilityZone: AvailabilityZone
+      AvailabilityZone: ap-south-1a
       ImageId: ami-0f1a5f5ada0e7da53
       InstanceType: t2.micro
       KeyName: KeyPairName
