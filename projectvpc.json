@@ -131,7 +131,7 @@
                 "Tags": [
                     {
                         "Key": "Name",
-                        "Value": "RdsSecurityGroup"
+                        "Value": "Rds-Sg"
                     }
                 ]
             }
