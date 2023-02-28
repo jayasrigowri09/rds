@@ -175,7 +175,7 @@
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
-             "AvailabilityZone": " us-east-1b",
+             "AvailabilityZone": "us-east-1b",
              "MapPublicIpOnLaunch": "true",
              "CidrBlock": "10.0.2.0/24",
              "Tags": [
