@@ -5,7 +5,7 @@
        "AvailabilityZone": {
           "Type": "String",
           "Description": "select availability zone",
-          "Default": "us-east-1c"
+          "Default": "us-east-1d"
        },
        "AmiId": {
           "Type": "String",
@@ -49,7 +49,7 @@
        "PrivateSubnet1": {
           "Type": "AWS::EC2::Subnet",
           "Properties": {
-             "AvailabilityZone": "us-east-1d",
+             "AvailabilityZone": "us-east-1c",
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
@@ -159,7 +159,7 @@
                 "Ref": "RDSDEMOVPC"
              },
              "MapPublicIpOnLaunch": "true",
-             "AvailabilityZone": "us-east-1c",
+             "AvailabilityZone": "us-east-1d",
              "CidrBlock": "10.0.1.0/24",
              "Tags": [
                 {
@@ -283,7 +283,7 @@
                 }
              ],
              "SubnetId": {
-                "Ref": "PrivateSubnet1"
+                "Ref": "PublicSubnet1"
              },
              "Tags": [
                 {
