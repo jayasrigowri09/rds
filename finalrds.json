@@ -65,7 +65,7 @@
        "PrivateSubnet2": {
           "Type": "AWS::EC2::Subnet",
           "Properties": {
-             "AvailabilityZone": "us-west-1b",
+             "AvailabilityZone": "us-west-1a",
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
