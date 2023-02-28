@@ -272,13 +272,11 @@
              "ImageId": {
                 "Ref": "AmiId"
              },
-             "NetworkInterface": [
-                {
-                    "AssociatePublicIpAddress": "true",
-                    "DeviceIndex": "0"              
+             "NetworkInterface":{
+                
+                    "AssociatePublicIpAddress": "true"            
                   
-                }
-             ],
+            },
              "InstanceType": "t2.micro",
              "KeyName": {
                 "Ref": "KeyPairName"
