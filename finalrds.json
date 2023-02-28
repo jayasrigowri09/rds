@@ -5,7 +5,7 @@
        "AvailabilityZone": {
           "Type": "String",
           "Description": "select availability zone",
-          "Default": "us-west-2d"
+          "Default": "us-west-2b"
        },
        "AmiId": {
           "Type": "String",
