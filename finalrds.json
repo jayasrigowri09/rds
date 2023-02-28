@@ -275,16 +275,8 @@
              "NetworkInterface": [
                 {
                     "AssociatePublicIpAddress": "true",
-                    "DeviceIndex": "0",
-                    "GroupSet": [
-                        { 
-                            "Ref" : "myVPCEC2SecurityGroup" 
-                        }
-                    ],
-                    "SubnetId": { 
-                        "Ref" : "PublicSubnet" 
-                    }
-                    
+                    "DeviceIndex": "0"              
+                  
                 }
              ],
              "InstanceType": "t2.micro",
