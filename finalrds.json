@@ -50,7 +50,6 @@
           "Type": "AWS::EC2::Subnet",
           "Properties": {
              "AvailabilityZone": "us-east-1c",
-             "MapPublicIpOnLaunch": "false",
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
@@ -67,7 +66,6 @@
           "Type": "AWS::EC2::Subnet",
           "Properties": {
              "AvailabilityZone": "us-east-1b",
-             "MapPublicIpOnLaunch": "false",
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
@@ -274,6 +272,21 @@
              "ImageId": {
                 "Ref": "AmiId"
              },
+             "NetworkInterface": [
+                {
+                    "AssociatePublicIpAddress": "true",
+                    "DeviceIndex": "0",
+                    "GroupSet": [
+                        { 
+                            "Ref" : "myVPCEC2SecurityGroup" 
+                        }
+                    ],
+                    "SubnetId": { 
+                        "Ref" : "PublicSubnet" 
+                    }
+                    
+                }
+             ],
              "InstanceType": "t2.micro",
              "KeyName": {
                 "Ref": "KeyPairName"
