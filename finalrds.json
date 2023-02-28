@@ -159,7 +159,7 @@
                 "Ref": "RDSDEMOVPC"
              },
              "MapPublicIpOnLaunch": "true",
-             "AvailabilityZone": "us-west-2b",
+             "AvailabilityZone": "us-west-2a",
              "CidrBlock": "10.0.1.0/24",
              "Tags": [
                 {
@@ -175,7 +175,7 @@
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
-             "AvailabilityZone": "us-west-2a",
+             "AvailabilityZone": "us-west-2b",
              "MapPublicIpOnLaunch": "true",
              "CidrBlock": "10.0.2.0/24",
              "Tags": [
