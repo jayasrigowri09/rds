@@ -5,12 +5,12 @@
        "AvailabilityZone": {
           "Type": "String",
           "Description": "select availability zone",
-          "Default": "ap-south-1a"
+          "Default": "us-west-2b"
        },
        "AmiId": {
           "Type": "String",
           "Description": "The ec2ID of the Instance",
-          "Default": "ami-09ba48996007c8b50"
+          "Default": "ami-0b029b1931b347543"
        },
        "KeyPairName": {
           "Type": "AWS::EC2::KeyPair::KeyName"
@@ -49,7 +49,7 @@
        "PrivateSubnet1": {
           "Type": "AWS::EC2::Subnet",
           "Properties": {
-             "AvailabilityZone": "ap-south-1c",
+             "AvailabilityZone": "us-west-2a",
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
@@ -65,7 +65,7 @@
        "PrivateSubnet2": {
           "Type": "AWS::EC2::Subnet",
           "Properties": {
-             "AvailabilityZone": "ap-south-1a",
+             "AvailabilityZone": "us-west-2b",
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
@@ -159,7 +159,7 @@
                 "Ref": "RDSDEMOVPC"
              },
              "MapPublicIpOnLaunch": "true",
-             "AvailabilityZone": "ap-south-1a",
+             "AvailabilityZone": "us-west-2b",
              "CidrBlock": "10.0.1.0/24",
              "Tags": [
                 {
@@ -175,7 +175,7 @@
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
              },
-             "AvailabilityZone": "ap-south-1c",
+             "AvailabilityZone": "us-west-2a",
              "MapPublicIpOnLaunch": "true",
              "CidrBlock": "10.0.2.0/24",
              "Tags": [
