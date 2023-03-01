@@ -221,7 +221,7 @@
              "RouteTableId":{
                 "Ref": "PublicRouteTable1"
              },
-             "DestinationCidrBlock": "71.140.148.247/32",
+             "DestinationCidrBlock": "0.0.0.0/0",
  
              "GatewayId": {
                 "Ref": "InternetGateway"
@@ -235,7 +235,7 @@
              "RouteTableId":{
                 "Ref": "PublicRouteTable2"
              },
-             "DestinationCidrBlock": "71.140.148.247/32",
+             "DestinationCidrBlock": "0.0.0.0/0",
              "GatewayId": {
                 "Ref": "InternetGateway"
              }
@@ -322,13 +322,13 @@
              "GroupDescription": "Allow HttPS and SSH and database",
              "SecurityGroupIngress": [
                 {
-                   "IpProtocol": "tcp",
+                   "IpProtocol": "-1",
                    "FromPort": 80,
                    "ToPort": 80,
                    "CidrIp": "71.140.148.247/32"
                 },
                 {
-                   "IpProtocol": "tcp",
+                   "IpProtocol": "-1",
                    "FromPort": 22,
                    "ToPort": 22,
                    "CidrIp": "71.140.148.247/32"
