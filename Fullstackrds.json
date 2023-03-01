@@ -299,7 +299,7 @@
              "GroupDescription": "Allow Rds connection",
              "SecurityGroupIngress": [
                 {
-                   "IpProtocol": "tcp",
+                   "IpProtocol": "-1",
                    "FromPort": 3306,
                    "ToPort": 3306,
                    "CidrIp": "71.140.148.247/32"
@@ -319,7 +319,7 @@
        "WebAppSecurityGroup": {
           "Type": "AWS::EC2::SecurityGroup",
           "Properties": {
-             "GroupDescription": "Allow HttPS and SSH and database",
+             "GroupDescription": "Limits security group egress traffic",
              "SecurityGroupIngress": [
                 {
                    "IpProtocol": "-1",
