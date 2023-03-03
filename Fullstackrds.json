@@ -221,7 +221,7 @@
              "RouteTableId":{
                 "Ref": "PublicRouteTable1"
              },
-             "DestinationCidrBlock": "71.140.148.247/32",
+             "DestinationCidrBlock": "0.0.0.0/0",
  
              "GatewayId": {
                 "Ref": "InternetGateway"
@@ -235,7 +235,7 @@
              "RouteTableId":{
                 "Ref": "PublicRouteTable2"
              },
-             "DestinationCidrBlock": "71.140.148.247/32",
+             "DestinationCidrBlock": "0.0.0.0/0",
              "GatewayId": {
                 "Ref": "InternetGateway"
              }
@@ -302,14 +302,8 @@
                    "IpProtocol": "tcp",
                    "FromPort": 3306,
                    "ToPort": 3306,
-                   "CidrIp": "71.140.148.247/32"
+                   "CidrIp": "0.0.0.0/0"
                 }
-             ],
-             "SecurityGroupEgress": [
-               {
-                  "IpProtocol": "-1",
-                  "CidrIp": "71.140.148.247/32"
-               }
              ],
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
@@ -325,13 +319,13 @@
        "WebAppSecurityGroup": {
           "Type": "AWS::EC2::SecurityGroup",
           "Properties": {
-             "GroupDescription": "Limits security group egress traffic",
+             "GroupDescription": "Allow ssh and http",
              "SecurityGroupIngress": [
                 {
                    "IpProtocol": "tcp",
                    "FromPort": 80,
                    "ToPort": 80,
-                   "CidrIp": "71.140.148.247/32"
+                   "CidrIp": "0.0.0.0/0"
                 },
                 {
                    "IpProtocol": "tcp",
@@ -339,12 +333,6 @@
                    "ToPort": 22,
                    "CidrIp": "71.140.148.247/32"
                 }
-             ],
-             "SecurityGroupEgress": [
-               {
-                  "IpProtocol": "-1",
-                  "CidrIp": "71.140.148.247/32"
-               }
              ],
              "VpcId": {
                 "Ref": "RDSDEMOVPC"
