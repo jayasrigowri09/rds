@@ -40,8 +40,8 @@
              "EnableDnsHostnames": "true",
              "Tags": [
                 {
-                   "Key": "Nmae",
-                   "Value": "RDSDEMOVPC"
+                   "Key": "Name",
+                   "Value": "Rds-Vpc"
                 }
              ]
           }
