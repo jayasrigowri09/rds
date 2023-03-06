@@ -27,6 +27,7 @@
        },
        "DBPassword": {
           "Type": "String",
+          "NoEcho": "true",
           "Description": "Db password must alphanumeric"
        }
     },
@@ -41,43 +42,12 @@
              "Tags": [
                 {
                    "Key": "Name",
-                   "Value": "Rds-Vpc"
+                   "Value": "Rds-DemoVpc"
                 }
              ]
           }
        },
-       "PrivateSubnet1": {
-          "Type": "AWS::EC2::Subnet",
-          "Properties": {
-             "AvailabilityZone": "us-east-1c",
-             "VpcId": {
-                "Ref": "RDSDEMOVPC"
-             },
-             "CidrBlock": "10.0.3.0/24",
-             "Tags": [
-                {
-                   "Key": "Name",
-                   "Value": "Private-Subnet1"
-                }
-             ]
-          }
-       },
-       "PrivateSubnet2": {
-          "Type": "AWS::EC2::Subnet",
-          "Properties": {
-             "AvailabilityZone": "us-east-1b",
-             "VpcId": {
-                "Ref": "RDSDEMOVPC"
-             },
-             "CidrBlock": "10.0.4.0/24",
-             "Tags": [
-                {
-                   "Key": "Name",
-                   "Value": "Private-Subnet2"
-                }
-             ]
-          }
-       },
+       
        "RdsDBSubnetGroup": {
           "Type": "AWS::RDS::DBSubnetGroup",
           "Properties": {
@@ -125,7 +95,7 @@
              "Tags": [
                 {
                    "Key": "Name",
-                   "Value": "MYRDSDEMO"
+                   "Value": "Rds-DBInstance"
                 }
              ]
           }
@@ -148,7 +118,7 @@
                 "Ref": "InternetGateway"
              },
              "VpcId": {
-                "Ref": "RDSDEMOVPC"
+                "Ref": "Rds-DemoVpc"
              }
           }
        },
@@ -156,7 +126,7 @@
           "Type": "AWS::EC2::Subnet",
           "Properties": {
              "VpcId": {
-                "Ref": "RDSDEMOVPC"
+                "Ref": "Rds-DemoVpc"
              },
              "MapPublicIpOnLaunch": "true",
              "AvailabilityZone": "us-east-1d",
@@ -173,7 +143,7 @@
           "Type": "AWS::EC2::Subnet",
           "Properties": {
              "VpcId": {
-                "Ref": "RDSDEMOVPC"
+                "Ref": "Rds-DemoVpc"
              },
              "AvailabilityZone": "us-east-1b",
              "MapPublicIpOnLaunch": "true",
@@ -190,7 +160,7 @@
           "Type": "AWS::EC2::RouteTable",
           "Properties": {
              "VpcId": {
-                "Ref": "RDSDEMOVPC"
+                "Ref": "Rds-DemoVpc"
              },
              "Tags": [
                 {
@@ -204,7 +174,7 @@
           "Type": "AWS::EC2::RouteTable",
           "Properties": {
              "VpcId": {
-                "Ref": "RDSDEMOVPC"
+                "Ref": "Rds-DemoVpc"
              },
              "Tags": [
                 {
@@ -288,10 +258,43 @@
              "Tags": [
                 {
                    "Key": "Name",
-                   "Value": "Rds-ec2"
+                   "Value": "Rds-EC2"
                 }
              ]
           }
+       },
+
+       "PrivateSubnet1": {
+         "Type": "AWS::EC2::Subnet",
+         "Properties": {
+            "AvailabilityZone": "us-east-1c",
+            "VpcId": {
+               "Ref": "Rds-DemoVpc"
+            },
+            "CidrBlock": "10.0.3.0/24",
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "Private-Subnet1"
+               }
+            ]
+         }
+       },
+       "PrivateSubnet2": {
+         "Type": "AWS::EC2::Subnet",
+         "Properties": {
+            "AvailabilityZone": "us-east-1b",
+            "VpcId": {
+               "Ref": "Rds-DemoVpc"
+            },
+            "CidrBlock": "10.0.4.0/24",
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "Private-Subnet2"
+               }
+            ]
+         }
        },
        "RdsSecurityGroup": {
           "Type": "AWS::EC2::SecurityGroup",
@@ -306,7 +309,7 @@
                 }
              ],
              "VpcId": {
-                "Ref": "RDSDEMOVPC"
+                "Ref": "Rds-DemoVpc"
              },
              "Tags": [
                 {
@@ -323,19 +326,13 @@
              "SecurityGroupIngress": [
                 {
                    "IpProtocol": "tcp",
-                   "FromPort": 80,
-                   "ToPort": 80,
-                   "CidrIp": "0.0.0.0/0"
-                },
-                {
-                   "IpProtocol": "tcp",
                    "FromPort": 22,
                    "ToPort": 22,
                    "CidrIp": "71.140.148.247/32"
                 }
              ],
              "VpcId": {
-                "Ref": "RDSDEMOVPC"
+                "Ref": "Rds-DemoVpc"
              },
              "Tags": [
                 {
