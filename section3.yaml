@@ -14,7 +14,7 @@ Parameters:
       - t2.small
   ImageId:
     Type: String
-    Default: ami-09ba48996007c8b50
+    Default: ami-09a0dac4253cfa03f
   EbsVolumeSize:
     Type: Number
     Description: Volume size in GiB
