@@ -128,27 +128,24 @@ Resources:
       Tags:
         -
           Key: Name
-          Value: Web Server
+          Value: Web-Server
 
   WebServerSecurityGroup:
     Type: AWS::EC2::SecurityGroup 
     Properties:
-      GroupDescription: Activity security group 
+      GroupDescription: Allow HTTP and SSH
       VpcId: !Ref Vpc
       SecurityGroupIngress:
-              
-        # HTTP rule
         -
-          CidrIp: 0.0.0.0/0 
           IpProtocol: tcp
           FromPort: 80
           ToPort: 80
-
-        # SSH rule
-        -
           CidrIp: 0.0.0.0/0 
+
+        - 
           IpProtocol: tcp
           FromPort: 22 
           ToPort: 22
+          CidrIp: 0.0.0.0/0
 
 
