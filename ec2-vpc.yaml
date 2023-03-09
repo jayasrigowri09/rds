@@ -49,7 +49,7 @@ Resources:
     Type: AWS::EC2::Instance 
     DependsOn:
       - InternetRoute
-      - ActivitySubnetRouteTableAssoc
+      - SubnetRouteTableAssociation
     Properties:
       InstanceType: t2.micro
       AvailabilityZone: ap-south-1
