@@ -51,9 +51,9 @@ Parameters:
 Mappings:
   RegionImages:
     us-east-1:
-      ImageId: ami-07683a44e80cd32c5
-    eu-west-1:
-      ImageId: ami-0de53d8956e8dcf80
+      ImageId: ami-09a0dac4253cfa03f
+    us-east-2:
+      ImageId: ami-02238ac43d6385ab3
 
 Resources:
   Vpc:
