@@ -12,8 +12,9 @@ Mappings:
   RegionImages:
     us-east-1:
       ImageId: ami-006dcf34c09e50022 
-    ap-south-1:
-      ImageId: ami-09ba48996007c8b50
+    us-east-2:
+      ImageId: ami-02238ac43d6385ab3
+    
 
 Resources:
   
