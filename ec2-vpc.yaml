@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'AWS CloudFormation Sample Template for creating an Amazon RDS DB instance.'
+Description: 'AWS CloudFormation Sample Template for creating an vpc and ec2.'
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
@@ -48,13 +48,13 @@ Resources:
   WebServerInstance:
     Type: AWS::EC2::Instance 
     DependsOn:
-      - InternetRoute
+      - Route
       - SubnetRouteTableAssociation
     Properties:
       InstanceType: t2.micro
       AvailabilityZone: ap-south-1
       SubnetId: !Ref Subnet 
-      ImageId: ami-09ba48996007c8b50
+      ImageId: ami-0d81306eddc614a45
       SecurityGroupIds:
         - !Ref WebServerSecurityGroup
 
