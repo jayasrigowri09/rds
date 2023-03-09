@@ -32,7 +32,7 @@ Parameters:
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
-    Description: Create ec2 vpc 
+    #Description: Create ec2 vpc 
       Properties:
       CidrBlock: !Select [ 0, !Ref VpcCidrBlocks ]
       EnableDnsSupport: true
