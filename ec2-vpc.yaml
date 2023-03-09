@@ -47,11 +47,12 @@ Resources:
       - ActivitySubnetRouteTableAssoc
     Properties:
       InstanceType: t2.micro
+      AvailabilityZone: ap-south-1
       SubnetId: !Ref Subnet 
-      ImageId: ami-0fad7378adf284ce0
+      ImageId: ami-09ba48996007c8b50
       SecurityGroupIds:
-        - !Ref SecurityGroup
-  SecurityGroup:
+        - !Ref WebServerSecurityGroup
+  WebServerSecurityGroup:
     Type: AWS::EC2::SecurityGroup 
     Properties:
       GroupDescription: security group 
