@@ -1,5 +1,5 @@
-AWSTemplateFormatVersion: 2010-09-09
-Description: AWS CloudFormation Sample Template for creating an Amazon RDS DB instance.
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AWS CloudFormation Sample Template for creating an Amazon RDS DB instance.'
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
