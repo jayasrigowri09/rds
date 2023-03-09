@@ -29,8 +29,8 @@ Parameters:
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
-    Description: Section 3 activity VPC
-    Properties:
+    Description: Create ec2 vpc 
+      Properties:
       CidrBlock: !Select [ 0, !Ref VpcCidrBlocks ]
       EnableDnsSupport: true
       EnableDnsHostnames: true
@@ -141,7 +141,6 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0 
-
         - 
           IpProtocol: tcp
           FromPort: 22 
