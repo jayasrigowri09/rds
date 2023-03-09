@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: 2010-09-09
+AWSTemplateFormatVersion: '2010-09-09'
 Description: >-
   Section 3 Activity template. 
   It launches a VPC with public and private subnets, 
@@ -18,11 +18,14 @@ Parameters:
   EbsVolumeSize:
     Type: Number
     Description: Volume size in GiB
+
   KeyPairName:
     Type: AWS::EC2::KeyPair::KeyName 
+
   VpcCidrBlocks:
     Type: CommaDelimitedList
     Description: 'vpc, public subnet, private subnet'
+
   SubnetAZ:
     Type: AWS::EC2::AvailabilityZone::Name 
 
@@ -81,11 +84,13 @@ Resources:
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
+
   VpcGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       VpcId: !Ref Vpc
       InternetGatewayId: !Ref InternetGateway
+      
   InternetRoute:
     Type: AWS::EC2::Route 
     DependsOn:
