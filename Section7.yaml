@@ -1,7 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: >-
-  Section 7 Activity template. 
-  This template creates an EC2 instance and an EBS volume attached to it.
+Description: This template creates an EC2 instance and an EBS volume attached to it.
 
 Parameters:
   WebServerSubnet:
