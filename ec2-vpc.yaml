@@ -52,7 +52,6 @@ Resources:
       - SubnetRouteTableAssociation
     Properties:
       InstanceType: t2.micro
-      AvailabilityZone: us-east-1
       SubnetId: !Ref Subnet 
       ImageId: ami-005f9685cb30f234b
       SecurityGroupIds:
