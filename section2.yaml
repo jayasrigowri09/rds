@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'AWS CloudFormation Sample Template for creating an vpc and ec2.'
+Description: 'AWS CloudFormation Sample Template for create a vpc with a public subnet.'
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
